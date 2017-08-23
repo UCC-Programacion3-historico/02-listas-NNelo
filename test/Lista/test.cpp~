@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "../../Lista/Lista.h"
 
-#include <stdint.h>
+#include <cstdint>
 
 Lista<int> *l1;
 
