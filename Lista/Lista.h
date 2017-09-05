@@ -84,7 +84,9 @@ Lista<T>::Lista(const Lista<T> &li) {
  * @tparam T
  */
 template<class T>
-Lista<T>::~Lista() {}
+Lista<T>::~Lista() {
+    vaciar();
+}
 
 
 /**
@@ -167,7 +169,7 @@ void Lista<T>::insertarPrimero(T dato) {
 template<class T>
 void Lista<T>::insertarUltimo(T dato) {
     Nodo<T> *aux = inicio;
-    while (aux != NULL) {
+    while (aux->getNext() != NULL) {
         aux = aux->getNext();
     }
     Nodo<T> *nn = new Nodo<T>(dato, NULL);
