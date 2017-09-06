@@ -37,6 +37,8 @@ public:
     void reemplazar(int pos, T dato);
 
     void vaciar();
+
+    Nodo<T> *getInicio();
 };
 
 
@@ -112,7 +114,7 @@ int Lista<T>::getTamanio() {
 
     while (aux != NULL) {
         cont++;
-        aux->getNext();
+        aux = aux->getNext();
     }
 
     return cont;
@@ -270,5 +272,9 @@ void Lista<T>::vaciar() {
     }
 }
 
+template<class T>
+Nodo<T> *Lista<T>::getInicio() {  //????????????????????????????????????????????
+    return inicio;
+}
 
 #endif //LISTA_H
