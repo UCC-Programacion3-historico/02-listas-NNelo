@@ -6,11 +6,16 @@
 
 template<class T>
 Lista<T> *unir(Lista<T> &lisA, Lista<T> &lisB) {
-    Lista<T> *R;
-    for (int i = 0; i < lisA.getTamanio(); ++i)
+    Lista<T> *R = new Lista<T>;
+    T ver;
+    for (int i = 0; i < lisA.getTamanio(); ++i) {
+        ver = lisA.getDato(i);
         R->insertarUltimo(lisA.getDato(i));
-    for (int j = 0; j < lisB.getTamanio(); ++j)
+    }
+    for (int j = 0; j < lisB.getTamanio(); ++j) {
         R->insertarUltimo(lisB.getDato(j));
+        ver = lisB.getDato(j);
+    }
 
     return R;
 }
