@@ -275,6 +275,7 @@ void Lista<T>::vaciar() {
         aux = aux->getNext();
         delete[] borr;
     }
+    inicio = NULL;
 }
 
 template<class T>
