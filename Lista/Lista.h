@@ -39,6 +39,10 @@ public:
     void vaciar();
 
     void insertAfter2(T, int, T);
+
+    Nodo<T> *getInicio() {
+        return inicio;
+    };
 };
 
 
@@ -59,22 +63,19 @@ Lista<T>::Lista() {
  */
 template<class T>
 Lista<T>::Lista(const Lista<T> &li) {
-    inicio = new Nodo<T>();
-
+    inicio = nullptr;
     Nodo<T> *auxli = li.inicio;
-    Nodo<T> *auxnn = inicio;
+    if (auxli == nullptr)
+        return;
 
-    while (auxli != NULL) {
-//        this->insertarUltimo(auxli->getDato());
-//        auxli = auxli->getNext();
+    Nodo<T> *auxnn = inicio = new Nodo<T>(auxli->getDato(), nullptr);
+//    Nodo<T> *auxnn = inicio;
+    auxli = auxli->getNext();
 
-//        auxnn->setDato(auxli->getDato());
-        Nodo<T> *newNode = new Nodo<T>;
-        auxnn->setDato(auxli->getDato());
+    while (auxli != nullptr) {
+        auxnn->setNext(new Nodo<T>(auxli->getDato(), nullptr));
 
-        auxnn->setNext(newNode);
-
-        auxnn = auxnn->getNext();
+        auxnn = auxnn->getNext(); // auxnn = newNode;
         auxli = auxli->getNext();
     }
 }
